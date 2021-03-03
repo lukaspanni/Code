@@ -1,8 +1,8 @@
 #include <glut.h>
 
 
-int width = 800;
-int height = 600;
+int width = 1920;
+int height = 1080;
 
 void init(int argc, char** argv) {
 	glutInit(&argc, argv);					
@@ -34,6 +34,9 @@ void display(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
+
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
 
 	glBegin(GL_QUADS);
 
