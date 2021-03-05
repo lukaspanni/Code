@@ -50,7 +50,7 @@ int main(int argc, char** argv)
 	readcloud("G:\\bones.txt");		// change this in case the point cloud is saved somewhere else.
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH); // Doublebuffer for animation
-	glutInitWindowSize(800, 800);
+	glutInitWindowSize(1000, 1000);
 	glutInitWindowPosition(400, 100);
 	glutCreateWindow("Mesh Visualization");
 	init();
@@ -81,6 +81,7 @@ void displaycloud(int modus)
 		if (modus == 1 || modus == 4) { // Display only the vertices
 			//////////////////////
 			// TODO: set fill mode to render only the vertices
+			glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
 
 			
 
@@ -91,7 +92,7 @@ void displaycloud(int modus)
 		if (modus == 2 || modus == 5) { // Display the outlines of the polygons
 			//////////////////////
 			// TODO: set fill mode to render only outlines
-
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 			
 
@@ -101,7 +102,7 @@ void displaycloud(int modus)
 		if (modus == 3 || modus == 6) { // Display filled polygons
 			//////////////////////
 			// TODO: set fill mode to render filled polygons
-
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 			
 
@@ -135,7 +136,7 @@ void displaycloud(int modus)
 			// first triangle consists of the vertices referenced in triangle[0], triangle[1], triangle[2].
 			// note the for loop running over all triangle indices, i.e. with i = 0 => references first vertex of first triangle
 
-
+			glVertex3f(vertices[triangle[i] * 3], vertices[triangle[i] * 3 + 1], vertices[triangle[i] * 3 + 2]);
 			
 
 
