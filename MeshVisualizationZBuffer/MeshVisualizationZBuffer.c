@@ -58,7 +58,7 @@ int main(int argc, char** argv)
 	readcloud("G:\\bones.txt");		// change this in case the point cloud is saved somewhere else.
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH); // Doublebuffer for animation
-	glutInitWindowSize(800, 800);
+	glutInitWindowSize(1000, 1000);
 	glutInitWindowPosition(400, 100);
 	glutCreateWindow("Mesh Visualization");
 	init();
@@ -234,25 +234,21 @@ void setAntiAliasing(int state) {
 	antiAliasing = state;
 
 	/////////////////////////// ENABLE / DISABLE Line/Point/Polygon Antialiasing
+	if (antiAliasing) {
+		glEnable(GL_BLEND);
+		glEnable(GL_POINT_SMOOTH);
+		glEnable(GL_LINE_SMOOTH);
+		glEnable(GL_POLYGON_SMOOTH);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//////////////////////////////////////////////////////////////////////////////
+	}
+	else {
+		glDisable(GL_BLEND);
+		glDisable(GL_POINT_SMOOTH);
+		glDisable(GL_LINE_SMOOTH);
+		glDisable(GL_POLYGON_SMOOTH);
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////
 }
 
 
